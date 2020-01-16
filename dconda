@@ -1,0 +1,11 @@
+#!/bin/bash
+
+docker run \
+    --net host \
+    -u $UID:`id -g` \
+    -e DISPLAY=$DISPLAY \
+    -p 8888:8888 \
+    -v $HOME/.Xauthority:/root/.Xauthority \
+    -v `pwd`:/workdir \
+    -it --rm tak0kada/conda-docker-env \
+    /bin/bash
